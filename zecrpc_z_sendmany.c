@@ -38,7 +38,6 @@ void zecrpc_z_sendmany_remove(rpc_sendmany *s, char *addr, double amount) {
             if (s->amount[i] == amount || amount == 0) {
                 s->addr_size -= strlen(addr);
                 s->amount_size -= sizeof(amount);
-                s = realloc(s, s->addr_size+s->amount_size+sizeof(rpc_sendmany));
 
                 s->addresses[s->length] = NULL;
                 s->addresses = realloc(s->addresses, s->addr_size);
